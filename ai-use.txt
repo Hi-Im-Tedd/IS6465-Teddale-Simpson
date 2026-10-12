@@ -1,0 +1,7 @@
+The AI tool used was the built in GitHub AI assistant. A couple of the prompts used were 
+"Add link to bootstrap's latest version in header" and 
+"Use bootstrap to apply row changes to Course and Preferred date. Each row much consist of 12 columns and on larger screens Course consists of 7 columns and Date consists of 5"
+AI definitely helped because it shortens the time needed for typing out code. However, this is userful when the user know what code is needed.
+AI also helps with placing code. For example I did not know where exactly the <div></div> for some bootstrap code should have gone
+so I used the AI to generate the code to see where it should go before writing it out myself. 
+A suggestion I revised was the bootstrap code for the grid. The AI helped me place the divs correctly but the size values for the rows and colums had to be edited.
