@@ -94,11 +94,12 @@ WHERE request_id = 4;
 
 Part 6
 
-CRUD action	SQL statement used in this lab	        Peer Tutoring Hub example
-Create		      INSERT                          Adding students to the students table
-Read		        SELECT                          Reading all values from the tutoring_requests table
-Update		      UPDATE                          Changing the topic of a particular tutoring_request
-Delete		      DELETE                          Deleting the request with topic of Delete Practice
+| CRUD action | SQL statement used in this lab | Peer Tutoring Hub example |
+|---|---|---|
+| Create | `INSERT INTO` / `INSERT OR IGNORE INTO` | Add a student or tutoring request, such as a request for IS 6465 SQL help |
+| Read | `SELECT ... FROM ... JOIN ... ORDER BY ...` | Retrieve tutoring requests with the associated student details |
+| Update | `UPDATE ... SET ... WHERE ...` | Change a request topic or mark its status as Cancelled |
+| Delete | `DELETE FROM ... WHERE ...` | Remove a specific tutoring request by its request ID |
 
 
 1. By using the student ID as a foreign key in the tutoring_request table to link both tables
