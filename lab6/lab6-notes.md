@@ -63,7 +63,7 @@ FAILURES: 3
 
 | Requirement | Application Page | Service or Validation | Repository or SQL | Database Table | Test Evidence |
 |---|---|---|---|---|---|
-| Student submits a tutoring request. | request-form.php collects the request and posts to process-request.php, which invokes the service and redirects on success. | requestService.php alidates the submission and wraps saving in a transaction; validation.php checks the selected topics, preferred time, and reason. | studentPDO.php inserts or finds a student by email; requestPDO.php inserts the request using a prepared statement. setup-database.sql defines the schema and the default `Open` status. | students stores the student ID, name, and unique email. tutoring_requests stores request details and references students.student_id; status defaults to `Open`. | integration-tests.php `UC01 create and Open` and `Lab 4 checkbox values preserved` pass. The full script currently reports three count-based failures because the setup SQL seeds a student and request. |
+| Student submits a tutoring request. | request-form.php collects the request and posts to process-request.php, which invokes the service and redirects on success. | requestService.php alidates the submission and wraps saving in a transaction; validation.php checks the selected topics, preferred time, and reason. | studentPDO.php inserts or finds a student by email; requestPDO.php inserts the request using a prepared statement. setup-database.sql defines the schema and the default Open status. | students stores the student ID, name, and unique email. tutoring_requests stores request details and references students.student_id; status defaults to Open. | integration-tests.php UC01 create and Open and Lab 4 checkbox values preserved pass. The full script currently reports three count-based failures because the setup SQL seeds a student and request. |
 
 Test Harness Generator
 
@@ -73,6 +73,11 @@ Test Harness Generator
 
 3. The AI generated test would be appropriate for this application in helping to prevent students from using fake email addresses.
 
+The AI tool was a great help in breaking down each component of the application. It was able to give a detailed explanation of how everything connects and works together. 
+It is important to remember that it was only able to do that once supplied with the proper information related to the project and business requirements, which means humans are still needed to do proper planning.
+Developers must always verify that AI output is meeting the business needs and matches planning documentation so that the projected outcomes are met. AI does have the tendency to fill in the blanks itself so human verification and validation is important to ensure
+AI outputs align with what is expected!
+
 ## Part 7
 
-The JOIN allows us to combine rows from both tables into a single result by using the related student_id column
+The JOIN allows us to combine rows from both, students and tutoring_requests tables into a single result by using the related student_id column.
