@@ -61,13 +61,13 @@ require __DIR__ . '/../includes/nav.php';
     </div>
 
     <div class="mb-3">
-      <label class="form-label" for="password">Password (minimum 8 characters)</label>
-      <input class="form-control" id="password" name="password" type="password" required minlength="8" maxlength="128">
+      <label class="form-label" for="password">Password (minimum 12 characters)</label>
+      <input class="form-control" id="password" name="password" type="password" required minlength="12" maxlength="128">
     </div>
 
     <div class="mb-3">
       <label class="form-label" for="confirm_password">Confirm Password</label>
-      <input class="form-control" id="confirm_password" name="confirm_password" type="password" required minlength="8" maxlength="128">
+      <input class="form-control" id="confirm_password" name="confirm_password" type="password" required minlength="12" maxlength="128">
     </div>
 
     <fieldset class="mb-3">

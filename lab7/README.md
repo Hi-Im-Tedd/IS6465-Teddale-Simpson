@@ -11,5 +11,6 @@ This version uses PHP 7.0-compatible syntax. It requires the PDO SQLite and mbst
 3. Visit `/` or `/index.php`; it opens the request form at `/php/request-form.php`. Use `/php/requests.php` to filter, view, edit, or cancel requests.
 4. Run `php tests/integration-tests.php` in a separate terminal.
 5. The Lab 4 validation checks remain in `tests/validation-tests.php`. Run them through the classroom server if desired.
+6. To add an active administrator, run `php database/create-admin.php` from this folder and enter the requested name, email, and password. Password input is hidden.
 
 **Classroom only:** no login, per-request authorization, or CSRF tokens yet. Do not deploy publicly. Router blocks direct access to internal folders only when launched as shown; a production server must have a dedicated public document root and full access controls. No real student personal information should be used in this demo.

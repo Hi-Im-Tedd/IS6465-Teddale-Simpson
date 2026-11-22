@@ -41,20 +41,20 @@ try {
 $studentUserId = registerUser($pdo, [
     'full_name' => 'Alex Morgan',
     'email' => 'alex@example.edu',
-    'password' => 'Secret123!',
-    'confirm_password' => 'Secret123!',
+    'password' => 'Secret123!456',
+    'confirm_password' => 'Secret123!456',
     'role' => 'Student'
 ]);
 $alex = findUserById($pdo, $studentUserId);
 check($alex !== false && $alex['role'] === 'Student' && $alex['status'] === 'Active', 'UM-01: Student registration creates Active account');
-check($alex['password_hash'] !== 'Secret123!' && password_verify('Secret123!', $alex['password_hash']), 'UM-01: Password stored as one-way hash');
+check($alex['password_hash'] !== 'Secret123!456' && password_verify('Secret123!456', $alex['password_hash']), 'UM-01: Password stored as one-way hash');
 check(findStudentByUserId($pdo, $studentUserId) !== false, 'UM-01: Student registration reconciles students.user_id');
 
 $tutorUserId = registerUser($pdo, [
     'full_name' => 'Taylor Lee',
     'email' => 'taylor@example.edu',
-    'password' => 'Secret123!',
-    'confirm_password' => 'Secret123!',
+    'password' => 'Secret123!456',
+    'confirm_password' => 'Secret123!456',
     'role' => 'Tutor'
 ]);
 check(findUserById($pdo, $tutorUserId)['role'] === 'Tutor' && findStudentByUserId($pdo, $tutorUserId) === false, 'UM-01: Tutor registration creates Active Tutor without student record');
@@ -63,8 +63,8 @@ try {
     registerUser($pdo, [
         'full_name' => 'Alex Duplicate',
         'email' => 'ALEX@example.edu',
-        'password' => 'Secret123!',
-        'confirm_password' => 'Secret123!',
+        'password' => 'Secret123!456',
+        'confirm_password' => 'Secret123!456',
         'role' => 'Student'
     ]);
     check(false, 'UM-01: Duplicate email rejected');
@@ -76,8 +76,8 @@ try {
     registerUser($pdo, [
         'full_name' => 'Sneaky Admin',
         'email' => 'sneaky@example.edu',
-        'password' => 'Secret123!',
-        'confirm_password' => 'Secret123!',
+        'password' => 'Secret123!456',
+        'confirm_password' => 'Secret123!456',
         'role' => 'Administrator'
     ]);
     check(false, 'UM-01: Public Administrator registration denied');
@@ -86,13 +86,13 @@ try {
 }
 
 // Seed one Administrator directly for admin test cases
-$adminId = insertUser($pdo, 'System Admin', 'admin@example.edu', password_hash('AdminPass1!', PASSWORD_DEFAULT), 'Administrator', 'Active');
+$adminId = insertUser($pdo, 'System Admin', 'admin@example.edu', password_hash('AdminPass1!456', PASSWORD_DEFAULT), 'Administrator', 'Active');
 $adminUser = findUserById($pdo, $adminId);
 
 // --- UM-09: Log In ---
-check(authenticateUser($pdo, 'alex@example.edu', 'Secret123!') !== false, 'UM-09: Valid login succeeds');
+check(authenticateUser($pdo, 'alex@example.edu', 'Secret123!456') !== false, 'UM-09: Valid login succeeds');
 check(authenticateUser($pdo, 'alex@example.edu', 'WrongPass!') === false, 'UM-09: Wrong password rejected');
-check(authenticateUser($pdo, 'unknown@example.edu', 'Secret123!') === false, 'UM-09: Unknown email rejected');
+check(authenticateUser($pdo, 'unknown@example.edu', 'Secret123!456') === false, 'UM-09: Unknown email rejected');
 
 // --- UM-02 & UM-04: View & Update Own Account ---
 $updatedAlex = updateOwnAccount($pdo, $studentUserId, [
@@ -107,14 +107,14 @@ check(findStudentByUserId($pdo, $studentUserId)['student_email'] === 'alex.morga
 
 // --- UM-05: Change Password ---
 try {
-    changeOwnPassword($pdo, $studentUserId, 'WrongCurrent!', 'NewSecret1!', 'NewSecret1!');
+    changeOwnPassword($pdo, $studentUserId, 'WrongCurrent!', 'NewSecret1!456', 'NewSecret1!456');
     check(false, 'UM-05: Incorrect current password rejected');
 } catch (InvalidArgumentException $e) {
     check(true, 'UM-05: Incorrect current password rejected');
 }
-check(changeOwnPassword($pdo, $studentUserId, 'Secret123!', 'NewSecret1!', 'NewSecret1!'), 'UM-05: Password changed with valid current password');
-check(authenticateUser($pdo, 'alex.morgan@example.edu', 'Secret123!') === false, 'UM-05: Old password no longer authenticates');
-check(authenticateUser($pdo, 'alex.morgan@example.edu', 'NewSecret1!') !== false, 'UM-05: New password authenticates');
+check(changeOwnPassword($pdo, $studentUserId, 'Secret123!456', 'NewSecret1!456', 'NewSecret1!456'), 'UM-05: Password changed with valid current password');
+check(authenticateUser($pdo, 'alex.morgan@example.edu', 'Secret123!456') === false, 'UM-05: Old password no longer authenticates');
+check(authenticateUser($pdo, 'alex.morgan@example.edu', 'NewSecret1!456') !== false, 'UM-05: New password authenticates');
 
 // --- UM-03: View and Search User Accounts ---
 check(count(searchUsers($pdo, 'morgan', 'Student', 'Active')) === 1, 'UM-03: Admin search by query, role, and status');
@@ -138,8 +138,8 @@ try {
 $secondStudentId = registerUser($pdo, [
     'full_name' => 'Priya Patel',
     'email' => 'priya@example.edu',
-    'password' => 'Secret123!',
-    'confirm_password' => 'Secret123!',
+    'password' => 'Secret123!456',
+    'confirm_password' => 'Secret123!456',
     'role' => 'Student'
 ]);
 $priya = findUserById($pdo, $secondStudentId);
@@ -180,9 +180,9 @@ try {
     check(true, 'UM-07: Deactivating last active Administrator denied');
 }
 check(changeUserStatus($pdo, $adminUser, $secondStudentId, 'Inactive'), 'UM-07: Admin deactivates student account');
-check(authenticateUser($pdo, 'priya@example.edu', 'Secret123!') === false, 'UM-07: Inactive user cannot log in');
+check(authenticateUser($pdo, 'priya@example.edu', 'Secret123!456') === false, 'UM-07: Inactive user cannot log in');
 check(changeUserStatus($pdo, $adminUser, $secondStudentId, 'Active'), 'UM-07: Admin reactivates student account');
-check(authenticateUser($pdo, 'priya@example.edu', 'Secret123!') !== false, 'UM-07: Reactivated user can log in');
+check(authenticateUser($pdo, 'priya@example.edu', 'Secret123!456') !== false, 'UM-07: Reactivated user can log in');
 
 // --- UM-08: Delete User Account ---
 try {
