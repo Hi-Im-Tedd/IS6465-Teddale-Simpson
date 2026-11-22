@@ -98,11 +98,11 @@ sqlite>
 | View my requests | Clicked My Requests on the nav bar | Student sees the student's own requests | Student's own requests were displayed | Pass |
 | Log out | Clicked the Log Out button | Session ends and login page appears | Session ended and the login page appears with a confirmation of successful logout | Pass |
 
-![alt text](<lab7/screenshots/successfulRegistration.png>)
+![alt text](<screenshots/successfulRegistration.png>)
 
-![alt text](<lab7/screenshots/userProfile.png>)
+![alt text](<screenshots/userProfile.png>)
 
-![alt text](<lab7/screenshots/tutoringRequest.png>)
+![alt text](<screenshots/tutoringRequest.png>)
 
 
 ## Part 6
@@ -118,7 +118,7 @@ broader controls, being able to see, edit and delete any and all requests and al
 
 5. The page remains at the login screen unless valid credentials are entered and verified. 
 
-![alt text](<lab7/screenshots/manageUsers.png>)
+![alt text](<screenshots/manageUsers.png>)
 
 ## Part 7
 
