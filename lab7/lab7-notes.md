@@ -124,46 +124,46 @@ The validation-tests.php file was preseved as required.
 
 ### Integration Tests
 
-php tests/integration-tests.php
-Xdebug: [Step Debug] Could not connect to debugging client. Tried: localhost:9000 (through xdebug.client_host/xdebug.client_port) :-(
-PASS: UM-01: Student registration creates Active account
-PASS: UM-01: Password stored as one-way hash
-PASS: UM-01: Student registration reconciles students.user_id
-PASS: UM-01: Tutor registration creates Active Tutor without student record
-PASS: UM-01: Duplicate email rejected
-PASS: UM-01: Public Administrator registration denied
-PASS: UM-09: Valid login succeeds
-PASS: UM-09: Wrong password rejected
-PASS: UM-09: Unknown email rejected
-PASS: UM-04: Own name and email updated
-PASS: UM-04: Role and status immutable via profile edit
-PASS: UM-04: Linked student email synchronized
-PASS: UM-05: Incorrect current password rejected
-PASS: UM-05: Password changed with valid current password
-PASS: UM-05: Old password no longer authenticates
-PASS: UM-05: New password authenticates
-PASS: UM-03: Admin search by query, role, and status
-PASS: UM-03: Admin search returns empty array when no match
-PASS: UM-06: Non-admin role change denied
-PASS: UM-06: Demoting last active Administrator denied
-PASS: Ownership: Student sees only own tutoring requests
-PASS: Authorization: Administrator sees all tutoring requests
-PASS: Ownership: Student cannot view peer request
-PASS: Ownership: Student cannot edit peer request
-PASS: UM-07: Deactivating last active Administrator denied
-PASS: UM-07: Admin deactivates student account
-PASS: UM-07: Inactive user cannot log in
-PASS: UM-07: Admin reactivates student account
-PASS: UM-07: Reactivated user can log in
-PASS: UM-08: Deletion blocked when user has related tutoring requests
-PASS: UM-08: Blocked user account remains intact
-PASS: UM-08: Account with no related requests deleted
+php tests/integration-tests.php\
+Xdebug: [Step Debug] Could not connect to debugging client. Tried: localhost:9000 (through xdebug.client_host/xdebug.client_port) :-( \
+PASS: UM-01: Student registration creates Active account\
+PASS: UM-01: Password stored as one-way hash\
+PASS: UM-01: Student registration reconciles students.user_id\
+PASS: UM-01: Tutor registration creates Active Tutor without student record\
+PASS: UM-01: Duplicate email rejected\
+PASS: UM-01: Public Administrator registration denied\
+PASS: UM-09: Valid login succeeds\
+PASS: UM-09: Wrong password rejected\
+PASS: UM-09: Unknown email rejected\
+PASS: UM-04: Own name and email updated\
+PASS: UM-04: Role and status immutable via profile edit\
+PASS: UM-04: Linked student email synchronized\
+PASS: UM-05: Incorrect current password rejected\
+PASS: UM-05: Password changed with valid current password\
+PASS: UM-05: Old password no longer authenticates\
+PASS: UM-05: New password authenticates\
+PASS: UM-03: Admin search by query, role, and status\
+PASS: UM-03: Admin search returns empty array when no match\
+PASS: UM-06: Non-admin role change denied\
+PASS: UM-06: Demoting last active Administrator denied\
+PASS: Ownership: Student sees only own tutoring requests\
+PASS: Authorization: Administrator sees all tutoring requests\
+PASS: Ownership: Student cannot view peer request\
+PASS: Ownership: Student cannot edit peer request\
+PASS: UM-07: Deactivating last active Administrator denied\
+PASS: UM-07: Admin deactivates student account\
+PASS: UM-07: Inactive user cannot log in\
+PASS: UM-07: Admin reactivates student account\
+PASS: UM-07: Reactivated user can log in\
+PASS: UM-08: Deletion blocked when user has related tutoring requests\
+PASS: UM-08: Blocked user account remains intact\
+PASS: UM-08: Account with no related requests deleted\
 PASS: UM-08: Deleted account removed from database
 
 Warning: session_start(): Cannot send session cache limiter - headers already sent (output started at /workspaces/IS6465-Teddale-Simpson/lab7/tests/integration-tests.php:17) in /workspaces/IS6465-Teddale-Simpson/lab7/tests/integration-tests.php on line 199
 
-Warning: session_start(): Cannot send session cache limiter - headers already sent (output started at /workspaces/IS6465-Teddale-Simpson/lab7/tests/integration-tests.php:17) in /workspaces/IS6465-Teddale-Simpson/lab7/includes/auth.php on line 17
-PASS: UM-10: Logout clears session data and destroys session
+Warning: session_start(): Cannot send session cache limiter - headers already sent (output started at /workspaces/IS6465-Teddale-Simpson/lab7/tests/integration-tests.php:17) in /workspaces/IS6465-Teddale-Simpson/lab7/includes/auth.php on line 17\
+PASS: UM-10: Logout clears session data and destroys session\
 Results: 34 passed, 0 failed
 
 ### Validation Tests
